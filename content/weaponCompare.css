@@ -1,0 +1,25 @@
+table, th, td {
+	border:1px solid black;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+	background-color: GhostWhite;
+}
+
+td {
+	text-align:center;
+}
+.Advantage:after{
+	font-family: 'Glyphicons Halflings';
+	content: "\E132";
+	color: green;
+}
+.Disadvantage:after{
+	font-family: 'Glyphicons Halflings';
+	content: "\E131";
+	color: Red;
+}
+.Equal:after{
+	font-family: 'Glyphicons Halflings';
+	content: "\E082";
+	color: Black;
+}
