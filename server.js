@@ -24,3 +24,9 @@
     app.get('/', function(req, res){
     	res.render('pages/index');
     });
+    app.get('/weaponCompare', function(req, res){
+	    res.render('pages/weaponCompare');
+    });
+    app.get('/graphicalRecipeGenerator', function(req, res){
+	    res.render('pages/graphicalRecipeGenerator');
+    });
