@@ -3,14 +3,18 @@
 <% include ../partials/head %>
 <link rel="stylesheet" href="/content/weaponCompare.css">
 </head>
-<body ng-app="zomboid">
+<body ng-app="zomboid" ng-cloak>
 <% include ../partials/header %>
-        <div ng-controller="main">
+        <div class="container-fluid" ng-controller="main">
+	<div class="row">
         <h2>Choose two items to compare:</h2>
+	</div>
         <div>
+		<div class="row">
+			<div class="col-sm-12">
                 Item 1: <select ng-model="data.weaponOne" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons">
                         <option value="">- Weapon -</option>
-                </select> <br/>
+		</select></div></div>
                 Item 2: <select ng-model="data.weaponTwo" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons">
                         <option value="">- Weapon -</option>
                 </select> <br/>
