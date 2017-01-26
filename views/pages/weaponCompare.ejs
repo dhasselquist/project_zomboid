@@ -9,11 +9,11 @@
 		<div ng-controller="main" class="container-fluid">
 			<h2>Choose two items to compare:</h2>
 			<div>
-				<select ng-model="data.weaponOne" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons">
+				<select ng-model="data.weaponOne" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons | orderBy: 'DisplayName'">
 					<option value="">- Weapon 1-</option>
 				</select>
 				Vs. 
-				<select ng-model="data.weaponTwo" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons">
+				<select ng-model="data.weaponTwo" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons | orderBy: 'DisplayName'">
 					<option value="">- Weapon 2-</option>
 				</select> <br/>
 				<button type="button" style="btn" ng-click="switch()">Switch</button>
