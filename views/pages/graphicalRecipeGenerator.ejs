@@ -2,9 +2,45 @@
 	<head>
 		<% include ../partials/head %>
 	</head>
-	<body>
+	<body ng-app="recipe">
 		<% include ../partials/header %>
-		<h2>Page in progress...</h2>
+		<h2>Select a recipe below to view it's ingredients:</h2>
+		<div ng-controller="main">
+			<select ng-model="data.recipe" ng-options="x for x in recipes" ng-change="recipeLookup()">
+				<option value="">- Choose a recipe -</option>
+			</select>
+			<div class="ingredients">
+				<ul>
+					<li ng-repeat="x in data.ingredients">
+						{{x}}	
+					</li>
+					<div ng-repeat="y in recipeResults">
+						<h2>Ingredients:</h2> 
+						<div ng-repeat="item in y.Ingredients">
+							<p>{{item}}</p>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
 		<% include ../partials/footer %>
+		<script>
+			angular.module('recipe',[])
+				.controller('main', ['$scope','$http', function($scope, $http){
+					$scope.data = {}, $scope.recipes = [];
+					$scope.recipeLookup = function (){
+					//$scope.data.ingredients = $scope.data.recipe.Ingredients;
+						$http.post('/getIngredients', {params: {recipe:$scope.data.recipe}})
+							.then(function(response){
+								//Array of objects, with ingredient property and result.
+								$scope.recipeResults = response.data;
+							});
+					}
+					$http.get('/getRecipes')
+						.then(function(response) {
+							$scope.recipes = response.data;
+						});
+				}]);
+		</script>
 	</body>
 </html>
