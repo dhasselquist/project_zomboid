@@ -7,13 +7,13 @@
     var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
     // configuration =================
-    mongoose.connect('mongodb://localhost/projectZomboid');
+    /*mongoose.connect('mongodb://localhost/projectZomboid');
     mongoose.connection.on('error', function(err){
 	    console.log(err);
     });
     mongoose.connection.on('disconnected', function(){
 	    console.log('Connection terminated.');
-    });
+    });*/
     require('./controllers/models/recipe_model.js');
     require('./controllers/models/weapon_model.js');
     app.set('view engine', 'ejs');
@@ -28,7 +28,12 @@
     var route = require('./controllers/index.js');
     route.controller(app);
     // listen (start app with node server.js) ======================================
-    app.listen(8081);
+    //app.listen(8081);
+
+	var server = app.listen(process.env.PORT || 8080, function () {
+		    var port = server.address().port;
+		    console.log("App now running on port", port);
+		  });
     console.log("App listening on port 8081");
     app.get('/', function(req, res){
     	res.render('pages/index');
