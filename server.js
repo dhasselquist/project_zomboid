@@ -7,6 +7,15 @@
     var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
     // configuration =================
+    mongoose.connect('mongodb://localhost/projectZomboid');
+    mongoose.connection.on('error', function(err){
+	    console.log(err);
+    });
+    mongoose.connection.on('disconnected', function(){
+	    console.log('Connection terminated.');
+    });
+    require('./controllers/models/recipe_model.js');
+    require('./controllers/models/weapon_model.js');
     app.set('view engine', 'ejs');
     app.use('/bower_components', express.static(__dirname + '/bower_components'));
     app.use('/content', express.static(__dirname + '/content'));
@@ -29,4 +38,7 @@
     });
     app.get('/graphicalRecipeGenerator', function(req, res){
 	    res.render('pages/graphicalRecipeGenerator');
+    });
+    app.get('/itemChecklist', function(req, res){
+	    res.render('pages/itemChecklist');
     });
