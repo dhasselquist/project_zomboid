@@ -6,26 +6,36 @@
 	</head>
 	<body ng-app="zomboid" ng-cloak>
 		<% include ../partials/header %>
-		<div ng-controller="main" class="container-fluid">
+		<div ng-controller="main" class="container">
 			<h2>Choose two items to compare:</h2>
-			<div>
-				<select ng-model="data.weaponOne" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons | orderBy: 'DisplayName'">
+			<div class="row">
+				<div class="col-md-4">
+				<select class="form-control" ng-model="data.weaponOne" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons | orderBy: 'DisplayName'">
 					<option value="">- Weapon 1-</option>
 				</select>
-				Vs. 
-				<select ng-model="data.weaponTwo" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons | orderBy: 'DisplayName'">
+				</div>
+				<div class="col-md-2">
+					<p style="text-align:center">Vs.</p>
+				</div>
+				<div class="col-md-4">
+				<select class="form-control" ng-model="data.weaponTwo" ng-change="checkInputs()" ng-options="x.DisplayName for x in weapons | orderBy: 'DisplayName'">
 					<option value="">- Weapon 2-</option>
 				</select> <br/>
-				<button type="button" style="btn" ng-click="switch()">Switch</button>
+				</div>
 			</div>
+				<div class="row">
+					<div class="col-md-2">
+				<button style="margin:10px 0px 10px 0px;" type="button" class="btn" ng-click="switch()">Switch</button>
+					</div>
+				</div>
 			<div ng-show="showTable">
 				<table class="table table-striped table-hover table-condensed">
 					<thead>
 						<tr>
 							<th>Stat</th>
-							<th>{{data.weaponOne.DisplayName}} </th>
-							<th>Result</th>
-							<th>{{data.weaponTwo.DisplayName}}</th>
+							<th style="text-align:center">{{data.weaponOne.DisplayName}} </th>
+							<th style="text-align:center">Result</th>
+							<th style="text-align:center">{{data.weaponTwo.DisplayName}}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -39,6 +49,5 @@
 				</table>
 			</div>
 		</div>
-		<% include ../partials/footer %>
 	</body>
 </html>
