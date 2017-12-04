@@ -47,3 +47,6 @@
     app.get('/itemChecklist', function(req, res){
 	    res.render('pages/itemChecklist');
     });
+    app.get('/scenarioSuggestions', function(req, res){
+	    res.render('pages/scenarioSuggestions');
+    });

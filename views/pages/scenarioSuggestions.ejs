@@ -1,0 +1,141 @@
+<html>
+<head>
+	<% include ../partials/head %>
+	<link rel="stylesheet" href="/content/weaponCompare.css">
+	<script type="text/javascript" src="/content/weaponCompare.js"></script>
+</head>
+<body ng-app="zomboid">
+	<% include ../partials/header %>
+	<div ng-controller="main" class="container-fluid">
+		<!-- Modal -->
+		<div class="modal left fade" id="aboutPage" tabindex="-1" role="dialog" aria-labelledby="aboutPageLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="aboutPageLabel">About this page</h4>
+					</div>
+
+					<div class="modal-body">
+						<p>If you need some ideas on a new playthrough, this tool will give you several scenarios to choose from. In your next game, roleplay like you're in the Walking Dead, or an immune survivor from I am Legend. If instead you would like suggetions to the sandbox settings based on difficulty, give the difficulty dropdown a shot.</p>
+					</div>
+
+				</div><!-- modal-content -->
+			</div><!-- modal-dialog -->
+		</div><!-- modal -->
+
+		<!-- Explanation of sandbox settings -->
+		<div class="card" id="sandboxSettings">
+			<div class="row">
+				<div class="col">
+					<div class="card-block">
+						<h4 style="float:left">Sandbox Settings</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="card-text" ng-show="!sandboxSettings">
+						<p>For a description of various in game settings, click on the relevant section below. When generating settings below, only the values that need to be edited will be provided. Options not mentioned are to be left at default (or the players discretion).</p>
+						<!-- Time Options -->
+						<div class="panel-group">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 data-toggle="collapse" href="#collapse1" class="panel-title">
+										<a data-toggle="collapse" href="#collapse1">Time Options</a>
+									</h4>
+								</div>
+								<div id="collapse1" class="panel-collapse collapse">
+									<ul class="list-group">
+										<li class="list-group-item"><strong>Day length</strong> can be 15 minutes, 30 minutes (2), 1 hour (1,3), 2 hours, 3 hours, 4 hours, 5 hours, 12 hours or Real-time. How fast you get hungry or thirsty is based on the in game time of day, so the longer the game day in real time, the longer it will take you to get hungry or thirsty.</li>
+										<li class="list-group-item"><strong>Start Month</strong> can be anywhere from January to December. July (1,2) and December (3) are preset defaults. The time of year will affect Foraging and Farming.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End of time options -->
+					<!-- Zombie Options -->
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 data-toggle="collapse" href="#collapse2" class="panel-title">
+									<a data-toggle="collapse" href="#collapse2">Zombie Lore</a>
+								</h4>
+							</div>
+							<div id="collapse2" class="panel-collapse collapse">
+								<ul class="list-group">
+									<li class="list-group-item"><strong>Speed</strong> determines how fast zombies move.</li>
+									<li class="list-group-item"><strong>Strength</strong> is how much damage a zombie will do to you.</li>
+									<li class="list-group-item"><strong>Toughness</strong> will affect how hard zombies are to kill.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End of zombie options -->
+				<!-- Advanced Options -->
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 data-toggle="collapse" href="#collapse3" class="panel-title">
+								<a data-toggle="collapse" href="#collapse3">Advanced Options</a>
+							</h4>
+						</div>
+						<div id="collapse3" class="panel-collapse collapse">
+							<ul class="list-group">
+								<li class="list-group-item"><strong>Population Multiplier</strong> a higher number corresponds to a larger overall zombie population.</li> 
+								<li class="list-group-item"><strong>Rally Group Size</strong> how large a group of zombies will get (horde size).</li> 
+								<li class="list-group-item"><strong>Rally Travel Distance</strong> how far individual zombies will move to join a horde.</li> 
+							</ul>
+						</div>
+					</div>
+				</div>
+			<!-- End of advanced options -->
+		</div>
+	</div>
+	<!-- End of explanation of sandbox settings -->
+
+	<!-- Prests -->
+	<div class="row" style="margin-left:5px">
+		<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+			<h4>Choose from popular culture</h4>
+			<div class="dropdown">
+				<button class="btn dropdown-toggle" type="button" id="cultureDropdown" aria-expanded="true" data-toggle="dropdown" aria-haspopup="true" style="border:1px solid;">Choose...
+					<span class="caret"></span></button>
+				<ul class="dropdown-menu" aria-labelledby="cultureDropdown">
+					<li><a href="#" ng-click="setPreset('The Walking Dead')">The Walking Dead</a></li>
+					<li><a href="#" ng-click='setPreset("28 Days Later")'>28 Days Later</a></li>
+					<li><a href="#" ng-click="setPreset('I am Legend')">I Am Legend</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+			<h4>Choose based on difficulty</h4>
+			<button class="btn dropdown-toggle" type="button" id="difficultyDropdown" aria-expanded="true" data-toggle="dropdown" aria-haspopup="true" style="border:1px solid;">Difficulty...
+				<span class="caret"></span></button>
+			<ul class="dropdown-menu" aria-labelledby="cultureDropdown">
+				<li><a href="#" ng-click="setPreset('Easy')">Easy</a></li>
+				<li><a href="#" ng-click="setPreset('Medium')">Medium</a></li>
+				<li><a href="#" ng-click="setPreset('Hard')">Hard</a></li>
+				<li><a href="#" ng-click="setPreset('Insane')">Insane</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row" style="margin-left:5px;margin-top:10px;" ng-show="scenario != false" ng-cloak>
+		<div class="col">
+			<div class="card">
+				<h2 ng-bind="scenario.name">{{scenario.name}}</h2>
+				<ul>
+					<li style="list-style-type:none" ng-repeat="settings in scenario.settings">
+						<strong>{{settings.setting}}</strong>: {{settings.value}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- End of culture presets -->
+	</div>
+	</div>
+</body>
+</html>

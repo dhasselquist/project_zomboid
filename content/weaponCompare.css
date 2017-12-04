@@ -1,25 +1,118 @@
-table, th, td {
-	border:1px solid black;
-}
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-	background-color: GhostWhite;
-}
 
-td {
-	text-align:center;
+.input_container{
+	position:relative;
+	padding:0;
+	margin:0;
 }
-.Advantage:after{
-	font-family: 'Glyphicons Halflings';
-	content: "\E132";
-	color: green;
+.editable{
+	position:absolute;
+	left:10px;
+	display:none;
 }
-.Disadvantage:after{
-	font-family: 'Glyphicons Halflings';
-	content: "\E131";
-	color: Red;
+h4:hover .editable{
+	display:inline;
 }
-.Equal:after{
-	font-family: 'Glyphicons Halflings';
-	content: "\E082";
-	color: Black;
+.groupCard{
+	padding-left:30px;
 }
+.card {
+	/* Add shadows to create the "card" effect */
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	/*width:50%;*/
+	padding:5px 20px;
+	background-color:#fcfcfc;
+	border: 2px solid #f9f9f9;
+	margin-bottom:20px;
+}
+/*******************************
+ * * MODAL AS LEFT/RIGHT SIDEBAR
+ * * Add "left" or "right" in modal parent div, after class="modal".
+ * * Get free snippets on bootpen.com
+ * *******************************/
+	.modal.left .modal-dialog,
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 320px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		-ms-transform: translate3d(0%, 0, 0);
+		-o-transform: translate3d(0%, 0, 0);
+		transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.left .modal-content,
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	.modal.left .modal-body,
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+
+	/*Left*/
+	.modal.left.fade .modal-dialog{
+		left: -320px;
+		-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+		-moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+		-o-transition: opacity 0.3s linear, left 0.3s ease-out;
+		transition: opacity 0.3s linear, left 0.3s ease-out;
+	}
+
+	.modal.left.fade.in .modal-dialog{
+		left: 0;
+	}
+
+	/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		-moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		-o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+	/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #FAFAFA;
+	}
+
+
+	table, th, td {
+		border:1px solid black;
+	}
+	.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+		background-color: GhostWhite;
+	}
+
+	td {
+		text-align:center;
+	}
+	.Advantage:after{
+		font-family: 'Glyphicons Halflings';
+		content: "\E132";
+		color: green;
+	}
+	.Disadvantage:after{
+		font-family: 'Glyphicons Halflings';
+		content: "\E131";
+		color: Red;
+	}
+	.Equal:after{
+		font-family: 'Glyphicons Halflings';
+		content: "\E082";
+		color: Black;
+	}
