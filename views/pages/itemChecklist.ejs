@@ -68,7 +68,7 @@
 					<div class="card-block">
 						<h4>
 						<div class="input_container">
-						<input ng-keyup="groupEnter($event.keyCode,$index,group.name)"
+						<input ng-keyup="addItemEnter($event.keyCode,$index,group.name)"
 	     					type="text" 
 	    					style="border:none;background-color:transparent;" 
 	   					name="groupName" 
@@ -80,7 +80,8 @@
 							<span ng-show="groupVisibility" class="glyphicon glyphicon-eye-close"></span>
 							<span ng-show="!groupVisibility" class="glyphicon glyphicon-eye-open"></span>
 						</button>
-						</div></h4>
+						</div>
+</h4>
 						<div class="card-text" ng-show="!groupVisibility">
 							<li style="padding-bottom:5px;background-color:transparent;list-style-type: none;"
 								ng-repeat="items in group.items">
@@ -91,14 +92,13 @@
 								<button ng-click="remove($index,$parent.$index)"type="button" class="btn btn-xs btn-danger">
 								<span style="padding-bottom:3px;" class="glyphicon glyphicon-minus"></span>
 							</li>
-							<button ng-click="addItem($index,group.name)"
-	       type="button" class="btn btn-xs btn-success">
+							<!-- Manual add button (+) -->
+							<button ng-click="addItemEnter($index,group.name)" type="button" class="btn btn-xs btn-success">
 							<span class="glyphicon glyphicon-plus" style="padding-bottom:3px;"></span></button>
 							<button ng-click="removeGroup($index)"
 								class='btn btn-xs btn-danger' style="float:right;padding-bottom:3px;">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
-							<!--<button ng-click="addItem(newItem,group.name}">Add</button>-->
 						</div>
 					</div>
 				</div>
