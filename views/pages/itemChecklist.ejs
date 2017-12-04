@@ -13,34 +13,6 @@ $(function(){
 	});
 });
 	</script>
-	<style>
-.input_container{
-	position:relative;
-	padding:0;
-	margin:0;
-}
-		.editable{
-			position:absolute;
-			left:10px;
-			display:none;
-		}
-		h4:hover .editable{
-			display:inline;
-		}
-		.groupCard{
-			padding-left:30px;
-		}
-		.card {
-			/* Add shadows to create the "card" effect */
-			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-			transition: 0.3s;
-			/*width:50%;*/
-			padding:5px 20px;
-			background-color:#fcfcfc;
-			border: 2px solid #f9f9f9;
-			margin-bottom:20px;
-		}
-	</style>
 </head>
 <body ng-app="zomboid">
 	<% include ../partials/header %>
@@ -68,7 +40,7 @@ $(function(){
 			</div>
 			<div class="col-md-1">
 				<div class="dropdown">
-					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Presets
+					<button style="margin-top:10px;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Presets
 						<span class="caret"></span></button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
 						<li><a href="#" ng-click="addTools()">Tools</a></li>
